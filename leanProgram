@@ -1,0 +1,115 @@
+1
+
+char*s;
+scanf("%s",s);
+error! because s is null, and i don't know the location of s;
+should be
+char s[100];
+scanf...
+
+2
+pair is in <utility>
+
+3
+
+出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。
+
+4
+
+所以在动手开始写程序之前，分析工作做得越彻底，逻辑描述越准确、简洁，写起程序来就会越容易。
+
+
+5
+几个头文件名字
+<utility>
+<iterator>
+
+6
+output code
+
+copy(V.begin(), V.end(), ostream_iterator<int>(cout, " "));
+
+7
+string2 char*
+c_str()
+
+8
+
+string and char*
+when string==char*, c++ has special function (char* and string has the same base structure), can return true;
+if you string.c_str()==char*, can't return true;
+pure c can't compare char* and char*
+
+char s[6] will get a null cstring
+
+string is made good! 
+right: string==char*
+wrong: char* == char* (even in c++)
+
+9
+
+switch 不支持 string！！！支持基础C类型
+
+10
+STL类型区别，原来我不是太注意他们的区别，因为用到的不是太深入
+
+sequense type:
+vector是顺序储存的；顺序表
+deque是双端队列，顺序储存，可随机访问
+list是双端链表
+slist是单链表
+queue却不是顺序储存的 
+stack和queue是基础类，一般不直接使用，不能用iterator遍历
+
+只有vector和deque可以随机访问，但是插入删除可能会影响指针有效性
+map的插入删除不影响指针，而且本身有特别顺序，不能排序。
+
+11
+char*可以用strcmp()比较
+
+12
+hash_map不是标准stl
+
+13
+sort()需要randomaccess it，所以只有deuqe 和vector可以用
+但是list有自己的sort，估计其余也都有吧；
+
+14
+vector has no func named find()
+set's find() returns iterator
+
+15
+set insert()如果有的话，count数目不会加的
+
+16
+gcc 和 g++里，数组好像最大只能开1e7，1e8会 SE，1e9会CE
+
+
+17
+ceil可以检测的最小限度是1e-8，1e-9就会失败
+ceil不是返回int而是double
+
+18
+cmath的函数比 math.h多那么一点点
+
+19
+注意 sscanf 和sprintf的使用
+
+20
+
+比较结构 只有 一个 函数 重载运算符（），参数为const&
+
+21
+memset用于清零
+22
+slist pop_front() push_front
+but queue is pop() and push() alike stack
+23
+scanf %c can get '\n'
+
+24
+gets reuturns char* or NULL, not int
+gets get a string with '\n' if possible!!!
+
+25
+linux 下，getchar() is micro from getc(), is not printf the stream inputed
