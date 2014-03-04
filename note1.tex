@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\usepackage{CJKutf8}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{comment}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amssymb}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\allowdisplaybreaks
+\usepackage{indentfirst}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{\thepage} % Empty center footer
+\fancyfoot[R]{} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0.5pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\fancyhead[RO,RE]{\begin{CJK}{UTF8}{gbsn}{\footnotesize}\end{CJK}}
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}
+ {-\baselineskip}{0.5\baselineskip}{\bf\leftline}}
+ \renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}
+ {-\baselineskip}{0.5\baselineskip}{\bf\leftline}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\newcommand{\perm}[2]{A^{#1}_{#2}}
+\newcommand{\comb}[2]{C^{#1}_{#2}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\begin{CJK}{UTF8}{gbsn}
+\title{	
+\normalfont \normalsize 
+\textsc{计研136} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge 算法和数据结构总结 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{\normalsize段鹏飞 （2013210847）}% Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+\section*{uva1078}
+\indent妈蛋，居然又把最短路径问题当成dfs问题深搜了，这个问题的复杂度用深搜是平方的指数级。\\
+\indent问题转化成最短路问题后，牵扯到建模问题，如何把一个(row,col,dir,doubled)转化成一个节点id，因为结果没有问具体的路径，只问了一个最短路径值，所以不需要由id到到4元组转化。其实用变基进值可以实现这种双边转化，但是乘法的效率有点低。\\
+\indent这个题目建模上一个比较蛋疼的地方就是，有点边在前面节点决定了它必须dou，但是也可能后面节点决定了它，所以比较麻烦。\\
+\indent这个题目最终没有AC，原因未知。。。 
+\section*{spfa和dijkstra}
+\indent这两个算法的细节有点混淆了。其实主要是不是算法本身相似，二是写出来的代码太像了v\_v。dijkstra每次选最短边进行新一轮的松弛，所以有的点会多次入队，而且有时候会同时出现在一个队里面，前面入队的时候距离未必已经最短。这也是dikstra算法复杂度大的表现。spfa算法只把每次松弛的边的顶点加入，同个时期只有唯一一个顶点在队列里面。
+\section*{uva1048}
+\indent没有AC，RE，人品好背，先不管它了。。。
+\end{CJK}
+\end{document}
